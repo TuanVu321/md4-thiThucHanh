@@ -20,7 +20,17 @@
         <td><a th:href="@{/edit/__${city.id}__}">Edit</a></td>
         <td><a th:href="@{/delete/__${city.id}__}">Delete</a></td>
     </tr>
-
 </table>
+<div class="row">
+    <div class="col">
+        <div class="courses_paginations">
+            <a th:href="@{'/'(page=${listCity.number - 1})}"
+               th:if="${listCity.hasPrevious()}">previous</a>
+            <span th:text="${listCity.number + 1}"></span>/<span th:text="${listCity.totalPages}"></span>
+            <a th:href="@{'/'(page=${listCity.number + 1})}"
+               th:if="${listCity.hasNext()}">next</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
